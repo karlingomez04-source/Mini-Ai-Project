@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>GGC AI Hub</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="loginScreen" class="login">
+  <h1>🎓 GGC AI Hub</h1>
+  <input id="email" placeholder="Email" />
+  <input id="password" type="password" placeholder="Password" />
+  <button id="loginBtn">Login</button>
+</div>
+
+<div id="app" class="hidden">
+
+  <div class="sidebar">
+    <h2>GGC Hub</h2>
+    <button onclick="go('home')">🏠 Home</button>
+  </div>
+
+  <div class="main">
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+      <h1>Welcome 👋</h1>
+
+      <div class="grid">
+
+        <div class="tile" onclick="go('ai')">🧠 AI Study Lab</div>
+        <div class="tile" onclick="go('assignments')">📄 Assignments</div>
+        <div class="tile" onclick="go('profile')">👤 Profile Builder</div>
+
+        <div class="tile" onclick="go('clubs')">👥 Clubs</div>
+        <div class="tile" onclick="go('dorm')">🏠 Dorm Life</div>
+        <div class="tile" onclick="go('events')">🎉 Events</div>
+
+        <div class="tile" onclick="go('career')">💼 Career Hub</div>
+        <div class="tile" onclick="go('reviews')">⭐ Reviews</div>
+        <div class="tile" onclick="go('resources')">📚 Resources</div>
+
+        <div class="tile" onclick="go('vip')">💎 VIP Student</div>
+        <div class="tile" onclick="openLink('https://clawcard-sp.transactcampus.com/eAccounts/AccountSummary.aspx')">💳 GGC Claw Card</div>
+
+      </div>
+    </section>
+
+    <!-- AI -->
+    <section id="ai" class="page">
+      <button onclick="go('home')">⬅ Back</button>
+      <h2>AI Study Lab</h2>
+
+      <textarea id="aiInput"></textarea>
+      <button id="askAI">Ask AI</button>
+
+      <div id="aiOutput"></div>
+
+      <div class="card">
+        🧠 Advanced AI Mode Active
+      </div>
+    </section>
+
+    <!-- ASSIGNMENTS -->
+    <section id="assignments" class="page">
+      <button onclick="go('home')">⬅ Back</button>
+      <h2>Assignments Hub</h2>
+
+      <div class="card" onclick="openLink('https://ggc.view.usg.edu/d2l/home')">🎓 D2L Portal</div>
+      <div class="card">📁 Past Assignments</div>
+      <div class="card">⏳ Upcoming Assignments</div>
+      <div class="card">⚠ Missed Assignments</div>
+    </section>
+
+<!-- VIP -->
+<section id="vip" class="page">
+  <button onclick="go('home')">⬅ Back</button>
+  <h2>💎 VIP Student Application</h2>
+
+  <div class="vip-box">
+
+    <input placeholder="Full Name">
+    <input placeholder="Student ID">
+    <input placeholder="GGC Email">
+    <input placeholder="Date of Birth">
+    <input placeholder="Age">
+
+    <label>Upload Student ID</label>
+    <input type="file">
+
+    <button onclick="go('vipthank')">Submit Application</button>
+
+  </div>
+</section>
+
+<!-- VIP THANK YOU -->
+<section id="vipthank" class="page">
+  <button onclick="go('home')">⬅ Home</button>
+
+  <div class="vip-box">
+    <h2>✅ Application Received</h2>
+
+    <p>Thank you for applying.</p>
+    <p>If you are confirmed as <b>21+</b>, we will send next steps.</p>
+
+    <p>💎 VIP Membership: <b>$20/month</b></p>
+  </div>
+</section>
+
+
+    <!-- PROFILE BUILDER -->
+    <section id="profile" class="page">
+      <button onclick="go('home')">⬅ Back</button>
+      <h2>Profile Builder (Character Creator)</h2>
+
+      <input id="name" placeholder="Name">
+      <input id="age" placeholder="Age">
+      <select id="year">
+        <option>Freshman</option>
+        <option>Sophomore</option>
+        <option>Junior</option>
+        <option>Senior</option>
+      </select>
+
+      <input id="major" placeholder="Major">
+      <input id="minor" placeholder="Minor">
+
+      <button onclick="buildCharacter()">Build Character</button>
+
+      <div id="characterBox" class="card"></div>
+    </section>
+
+    <!-- CLUBS -->
+    <section id="clubs" class="page">
+      <button onclick="go('home')">⬅ Back</button>
+      <h2>Clubs</h2>
+
+      <div class="card" onclick="openLink('https://ggc.campusgroups.com/webapp/auth/login?redirect=https:%2F%2Fggc.campusgroups.com%2Fgroups')">
+        🎓 GGC Student Organizations
+      </div>
+
+    </section>
+
+    <!-- DORM -->
+    <section id="dorm" class="page">
+      <button onclick="go('home')">⬅ Back</button>
+      <h2>Dorm Life</h2>
+
+      <div class="card" onclick="openLink('https://ggc.starrezhousing.com/StarRezPortalX/F19C2368/1/1/Home-Home?UrlToken=4576F4B6')">
+        🏠 Housing Portal
+      </div>
+
+      <div class="card">🧑‍🏫 RA Info</div>
+      <div class="card">🤝 Roommate Help</div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events" class="page">
+      <button onclick="go('home')">⬅ Back</button>
+      <h2>Events</h2>
+
+      <div class="card">🎉 Campus Parties</div>
+      <div class="card">🎯 Activities</div>
+      <div class="card">🏀 Sports</div>
+    </section>
+
+    <!-- CAREER -->
+    <section id="career" class="page">
+      <button onclick="go('home')">⬅ Back</button>
+      <h2>Career Hub</h2>
+
+      <div class="card" onclick="openLink('https://www.ggc.edu/student-life/student-services/career-services')">
+        💼 Career Services
+      </div>
+
+      <div class="card" onclick="openLink('https://www.ggc.edu/about-ggc/work-at-ggc')">
+        🧑‍💼 Jobs
+      </div>
+
+      <div class="card" onclick="openLink('https://www.ggc.edu/student-life/student-services/career-services/student-career-services/internships-career-services')">
+        📊 Internships
+      </div>
+
+      <div class="card" onclick="openLink('https://www.linkedin.com/home')">
+        🔗 LinkedIn
+      </div>
+
+      <div class="card" onclick="openLink('https://app.joinhandshake.com/login')">
+        🤝 Handshake
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="page">
+      <button onclick="go('home')">⬅ Back</button>
+      <h2>Reviews</h2>
+
+      <div class="card">📘 Rate Classes</div>
+      <div class="card">👨‍🏫 Rate Professors</div>
+      <div class="card">🏠 Rate Dorm Life</div>
+      <div class="card">🧑‍🏫 Rate RAs</div>
+      <div class="card">🏛 Rate Staff</div>
+      <div class="card">🚗 Rate Parking</div>
+      <div class="card">🏫 Rate Deans</div>
+      <div class="card">🏛 Rate President</div>
+      <div class="card">🎓 Rate Student Orgs</div>
+
+      <div class="card" onclick="go('allReviews')">
+        📊 View ALL Reviews
+      </div>
+    </section>
+
+    <!-- ALL REVIEWS -->
+    <section id="allReviews" class="page">
+      <button onclick="go('reviews')">⬅ Back</button>
+      <h2>All Reviews Filter</h2>
+
+      <select id="filterReviews">
+        <option>Professors</option>
+        <option>Classes</option>
+        <option>Deans</option>
+        <option>President</option>
+        <option>Student Organizations</option>
+        <option>Dorm Life</option>
+        <option>RA</option>
+        <option>Parking</option>
+        <option>Staff</option>
+      </select>
+
+      <div class="card">⭐ Review System Loaded</div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources" class="page">
+      <button onclick="go('home')">⬅ Back</button>
+      <h2>Resources</h2>
+
+      <div class="card" onclick="openLink('https://ggc.gabest.usg.edu/StudentSelfService/ssb/studentCommonDashboard')">
+        🔗 Portal
+      </div>
+
+      <div class="card" onclick="openLink('https://www.ggc.edu/academics/kaufman-library')">
+        📚 Library
+      </div>
+
+      <div class="card" onclick="openLink('https://itservices.ggc.edu/students/')">
+        💻 IT Services
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
